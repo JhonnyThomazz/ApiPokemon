@@ -1,8 +1,8 @@
+import { apiPoke } from "@/services/apiPoke";
+import { styles } from "@/style/indexStyle";
 import React, { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
 import PokeCard from "../components/PokeCard";
-import { apiPoke } from "@/services/apiPoke";
-import { styles } from "@/style/indexStyle";
 
 type Pokemon = {
   name: string;
