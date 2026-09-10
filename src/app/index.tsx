@@ -2,12 +2,14 @@ import { apiPoke } from "@/services/apiPoke";
 import { styles } from "@/style/indexStyle";
 import React, { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
+import { Double } from "react-native/Libraries/Types/CodegenTypes";
 import PokeCard from "../components/PokeCard";
 
 type Pokemon = {
   name: string;
-  height: string;
-  weight: string;
+  height: Double;
+  weight: Double;
+  picture: string;
   erro?: boolean;
 };
 
@@ -38,9 +40,10 @@ export default function Home() {
       }
 
       setPokemon({
+        picture: resposta.data.sprites.front_default,
         name: resposta.data.name,
-        height: resposta.data.height,
-        weight: resposta.data.weight,
+        height: resposta.data.height / 10,
+        weight: resposta.data.weight / 10,
       });
 
     } catch (error) {
@@ -60,9 +63,10 @@ export default function Home() {
       <TextInput
         value={nome}
         onChangeText={setNome}
+        style={styles.input}
       />
 
-      <Pressable onPress={buscarPoke}>
+      <Pressable style={styles.pressable} onPress={buscarPoke}>
         <Text>Buscar Pokémon</Text>
       </Pressable>
 
@@ -71,7 +75,8 @@ export default function Home() {
           name={pokemon.name}
           height={pokemon.height}
           weight={pokemon.weight}
-        />
+          picture={pokemon.picture}
+               />
       )}
     </View>
   );

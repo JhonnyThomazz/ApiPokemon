@@ -11,4 +11,19 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#111827",
     },
+
+    pressable: {
+        padding: 10,
+        marginTop: 5,
+        borderRadius: 10,
+        alignItems: "center",
+        backgroundColor: "#abf9ff",
+    },
+    input:{
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderRadius: 10,
+        marginBlock: 15
+    }
+
 });
